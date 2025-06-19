@@ -48,8 +48,6 @@ class GridBagLayoutPanel extends Panel
         this.add(b1,c);
         this.add(b2,c);
         this.add(b3,c);
-        this.add(b4,c);
-        this.add(b5,c);
     }
 
 
