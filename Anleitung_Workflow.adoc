@@ -20,14 +20,14 @@ git push -u origin developer        //auf Remote hochladen
 
 === Feature-Branch anlegen
 
-. Klone das gitRepo auf VSC, dort gibst du ins Terminal folgendes ein:
+.Klone das gitRepo auf VSC, dort gibst du ins Terminal folgendes ein:
 
 [source,bash]
 
 git checkout developer              //auf Branch developer wechseln
 git pull origin developer           //neueste developer-version aus dem git holen
 
-. Erstelle dann eine neue Task, an der du arbeiten möchstest z.B.:
+.Erstelle dann eine neue Task, an der du arbeiten möchstest z.B.:
 
 [source,bash]
 
@@ -35,16 +35,17 @@ git checkout -b task/<DeinName_Name deiner Task> //innerhalb der <> keine leerze
 
 === Änderungen committen
 
-Jetzt arbeitest du in VSCode wie sonst auch. Wenn du fertig bist, und deine Ändereungen Comitten willst gib folgendes im terminal ein:
+Jetzt arbeitest du in VSCode wie sonst auch. Wenn du fertig bist:
 
 
-[source,bash]
+Um zu committen:
 
-git add .
-git commit -m "task/<DeinName_Name deiner Task> <commitmessage>"
+    . Source Control-Icon (Strg+Shift+G)
+    . Geänderte Dateien werden gelistet. "+" bei den Dateien ab, die in den Commit sollen.
+    . Oben im Eingabefeld eine Commit-Nachricht schreiben und commit
 
 
-=== task-Branch auf GitHub pushen
+=== Task-Branch auf GitHub pushen
 
 . gib im Terminal (immer von vsc!) folgendes ein:
 
@@ -59,7 +60,7 @@ git push -u origin task/<DeinName_Name deiner Task>
 
 git checkout developer                  //wechselt auf die Ansicht von developer
 git pull origin developer               //holt neueste developer-version von git
-git merge --no-ff feature/xyz -m "Merge von task in developer"
+git merge --no-ff task/<DeinName_Name deiner Task> -m "Merge von task in developer"
 git push origin developer               //pusht deine änderungen auf den developer-Branch in git
 
 === task-Branch löschen (optional)
@@ -105,5 +106,3 @@ git push origin main         //lokaler merge in git pushen
 |Branch löschen
 |git branch -d <branch> + git push --delete origin <branch>
 |===
-
-
