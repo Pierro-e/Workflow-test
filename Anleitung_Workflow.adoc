@@ -45,7 +45,7 @@ Um zu committen:
     . Oben im Eingabefeld eine Commit-Nachricht schreiben und commit
 
 
-=== task-Branch auf GitHub pushen
+=== Task-Branch auf GitHub pushen
 
 . gib im Terminal (immer von vsc!) folgendes ein:
 
