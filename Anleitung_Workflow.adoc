@@ -70,7 +70,7 @@ git push origin --delete task/<DeinName_Name deiner Task> //löscht den remote-b
 git branch -d task/<DeinName_Name deiner Task>  //löscht den lokalen Branch           
 
 
-== Für SCRUM-Master zusätzlich: Merge von developer → main
+== Für REVIEWER von developer-Branch-Code zusätzlich: Merge von developer → main
 
 [source,bash]
 
