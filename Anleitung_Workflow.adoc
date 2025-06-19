@@ -1,0 +1,109 @@
+:toc:
+:toc-title: Inhaltsverzeichnis
+:sectnums:
+:doctype: article
+:author: Pierre Kißling
+:revnumber: 1.0
+:revdate: 2025-06-19
+
+= Git-Workflow für VSC mit Task-Branches
+
+== 1. (bitte überspringen! ->schon gemacht) developer-Branch anlegen
+
+[source,bash]
+
+git checkout -b developer           //neuen Branch anlegen und direkt besuchen
+git push -u origin developer        //auf Remote hochladen
+
+
+== Workflow für developer
+
+=== Feature-Branch anlegen
+
+. Klone das gitRepo auf VSC, dort gibst du ins Terminal folgendes ein:
+
+[source,bash]
+
+git checkout developer              //auf Branch developer wechseln
+git pull origin developer           //neueste developer-version aus dem git holen
+
+. Erstelle dann eine neue Task, an der du arbeiten möchstest z.B.:
+
+[source,bash]
+
+git checkout -b task/<DeinName_Name deiner Task> //innerhalb der <> keine leerzeichen!
+
+=== Änderungen committen
+
+Jetzt arbeitest du in VSCode wie sonst auch. Wenn du fertig bist, und deine Ändereungen Comitten willst gib folgendes im terminal ein:
+
+
+[source,bash]
+
+git add .
+git commit -m "task/<DeinName_Name deiner Task> <commitmessage>"
+
+
+=== task-Branch auf GitHub pushen
+
+. gib im Terminal (immer von vsc!) folgendes ein:
+
+[source,bash]
+
+git push -u origin task/<DeinName_Name deiner Task>
+
+=== Merge von deinem Task-branch auf developer
+.Lokal mergen
+
+[source,bash]
+
+git checkout developer                  //wechselt auf die Ansicht von developer
+git pull origin developer               //holt neueste developer-version von git
+git merge --no-ff feature/xyz -m "Merge von task in developer"
+git push origin developer               //pusht deine änderungen auf den developer-Branch in git
+
+=== task-Branch löschen (optional)
+[source, bash]
+
+git push origin --delete task/<DeinName_Name deiner Task> //löscht den remote-branch der Task auf git
+git branch -d task/<DeinName_Name deiner Task>  //löscht den lokalen Branch           
+
+
+== Für SCRUM-Master zusätzlich: Merge von developer → main
+
+[source,bash]
+
+git checkout main           //in main wechseln
+git pull origin main        //main aktualisieren
+git merge --no-ff developer -m "Merge developer into main"  //kein fast-foreward-merge, sondern immer neuer merge-commit
+git push origin main         //lokaler merge in git pushen
+
+== Kurzübersicht der Befehle
+
+[cols="1,1",options="header"]
+|===
+|Aktion |Terminal-Befehl
+
+|lokale branches auflisten (-a local & remote Branches)(-r remote-branches)
+|git branch -a
+
+|Repository klonen
+|git clone <repo-url>
+
+|Neuen Branch anlegen
+|git checkout -b <name>
+
+|Änderungen committen
+|git add . && git commit -m "msg"
+
+|Branch pushen
+|git push -u origin <branch>
+
+|Merge durchführen
+|git merge --no-ff <branch>
+
+|Branch löschen
+|git branch -d <branch> + git push --delete origin <branch>
+|===
+
+
