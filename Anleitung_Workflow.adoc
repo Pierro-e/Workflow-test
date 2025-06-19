@@ -60,7 +60,7 @@ git push -u origin task/<DeinName_Name deiner Task>
 
 git checkout developer                  //wechselt auf die Ansicht von developer
 git pull origin developer               //holt neueste developer-version von git
-git merge --no-ff feature/xyz -m "Merge von task in developer"
+git merge --no-ff task/<DeinName_Name deiner Task> -m "Merge von task in developer"
 git push origin developer               //pusht deine änderungen auf den developer-Branch in git
 
 === task-Branch löschen (optional)
